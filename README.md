@@ -98,14 +98,14 @@ Now, go into Client-1. Go into Windows File Explorer and type in "\\dc-1". From 
 <img src="https://i.imgur.com/Q75dXmF.png" height="80%" width="80%" alt="15."/>
 </p>
 
-<h3>Create a new group in Active Directory</h3>
-Go back into DC-1 and open Active Directory Users and Computers. Then go into the following: mydomain.com (domain that was created) -> _SECURITYGROUPS -> right click in the main window -> New -> Group. Then add "ACCOUNTANTS." Right click "ACCOUNTANTS" -> Properties -> Members -> add lox.viduw (or the account you have created).
+<h3>Create a New Group in Active Directory</h3>
+Log back into DC-1 and open Active Directory Users and Computers. Then go into the following: mydomain.com (domain that was created) -> _SECURITYGROUPS -> right click in the main window -> New -> Group. Then add "ACCOUNTANTS." Right click "ACCOUNTANTS" -> Properties -> Members -> add the random account you have created.
 
 <p></p>
 Next go back into Windows File Explorer. Go accounting folder -> right click -> Properties -> Sharing -> Add ACCOUNTANTS -> Read/Write Permissions.
 
 <p>
-<img src="https://i.imgur.com/qtBkjIO.png" height="80%" width="80%" alt="16."/>
+<img src="https://i.imgur.com/qalaQBi.png" height="80%" width="80%" alt="16."/>
 </p>
 
 <p>
@@ -113,24 +113,18 @@ Next go back into Windows File Explorer. Go accounting folder -> right click -> 
 </p>
 
 <p>
-<img src="https://i.imgur.com/kBIBepR.png" height="80%" width="80%" alt="19."/>
+<img src="https://i.imgur.com/4XywO9r.png" height="80%" width="80%" alt="19."/>
 </p>
+
+
+When it is done, go back into Client-1. Then attempt go into the accounting folder and you should be able to.
 
 <p>
-<img src="https://i.imgur.com/hCKGOWw.png" height="80%" width="80%" alt="20."/>
+<img src="https://i.imgur.com/5IP6i7k.png" height="80%" width="80%" alt="21."/>
 </p>
 
-Once this is all completed, go back into Client-1. Then attempt go into the accounting folder and you should be able to.
 
-<p>
-<img src="https://i.imgur.com/nlEPa0z.png" height="80%" width="80%" alt="21."/>
-</p>
-
-<p>
-<img src="https://i.imgur.com/kal6vzc.png" height="80%" width="80%" alt="22."/>
-</p>
-
-After doing this exercise, you should have some intuition on how to create network files and set the permissions. Thank you checking out my tutorial! 
+This exercise should have give you some intuition on how to create network files and set the permissions. Thank you checking out my tutorial! 
 
 
-**REMEMBER TO DELETE YOUR RESOURCES ONCE YOU ARE DONE WITH THE LAB!**
+**REMEMBER TO ALWAYS CLEAN UP YOUR RESOURCES ONCE YOU ARE DONE WITH THE LAB!**
