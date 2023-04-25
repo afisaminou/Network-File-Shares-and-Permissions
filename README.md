@@ -13,31 +13,124 @@ In this tutorial, I will be showing how to set network file permissions and shar
 
 <h2>Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+<h3>Create two virtual machines</h3>
+First, you need to create two virtual machines: one will be the domain controller (DC-1) and the other will be a regular client (Client-1). This lab is build off on the Active Directory lab and will be set up the same way.
+
+<p></p>
+
+If you have not done the Active directory lab yet, please go [here](https://github.com/afisaminou/configure-ad).
+
+<p></p>
+
+Log into DC-1 and Client-1 using Microsoft Remote Desktop. For Client-1, log in with a user that was created from the Active Directory lab.
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Av5OHCs.png" height="80%" width="80%" alt="1."/>
 </p>
+  
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<img src="https://i.imgur.com/1arqrs2.png" height="80%" width="80%" alt="2."/>
 </p>
-<br />
+
+
+<h3>Create Network Folders</h3>
+Next, go to the c:/ drive on the DC-1 machine and create 4 folders. Go to Windows File Explorer in the Start Menu and create the following folders:
+
+- read-access
+- read/write-access
+- no-access
+- accounting
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/9pZ01UW.png" height="80%" width="80%" alt="4."/>
 </p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+
+
+Next, let's go into each folder and set up permission level for each folders: -> right click the folder -> Prorieties ->  Permission Level -> Share
+- read-access -> Add Domain Users -> Read Permissions
+- write-access -> Add Domain Users -> Read/Write Permissions
+- no-access -> Add Domain Admins -> Read/Write Permissions
+
+<p></p>
+
+Leave the accounting folder for now.
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/0jhupJZ.png" height="80%" width="80%" alt="6."/>
 </p>
+
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<img src="https://i.imgur.com/SKT0aYj.png" height="80%" width="80%" alt="7."/>
 </p>
-<br />
+
+<p>
+<img src="https://i.imgur.com/WikXWFC.png" height="80%" width="80%" alt="8."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/lVWxB8C.png" height="80%" width="80%" alt="9."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/EsqqGsx.png" height="80%" width="80%" alt="10."/>
+</p>
+
+<h3>Using Client-1 to access Network Folders</h3>
+Now, go into Client-1. Go into Windows File Explorer and type in "\\dc-1". From here, try to access the folders and observe the results for each one. 
+
+<p>
+<img src="https://i.imgur.com/07U1phZ.png" height="80%" width="80%" alt="11."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/e4r2ORL.png" height="80%" width="80%" alt="12."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/XZ5Nqsb.png" height="80%" width="80%" alt="13."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/0EtiZM7.png" height="80%" width="80%" alt="14."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/Q75dXmF.png" height="80%" width="80%" alt="15."/>
+</p>
+
+<h3>Create a new group in Active Directory</h3>
+Go back into DC-1 and open Active Directory Users and Computers. Then go into the following: mydomain.com (domain that was created) -> _SECURITYGROUPS -> right click in the main window -> New -> Group. Then add "ACCOUNTANTS." Right click "ACCOUNTANTS" -> Properties -> Members -> add lox.viduw (or the account you have created).
+
+<p></p>
+Next go back into Windows File Explorer. Go accounting folder -> right click -> Properties -> Sharing -> Add ACCOUNTANTS -> Read/Write Permissions.
+
+<p>
+<img src="https://i.imgur.com/qtBkjIO.png" height="80%" width="80%" alt="16."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/Qxd7YaC.png" height="80%" width="80%" alt="17."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/kBIBepR.png" height="80%" width="80%" alt="19."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/hCKGOWw.png" height="80%" width="80%" alt="20."/>
+</p>
+
+Once this is all completed, go back into Client-1. Then attempt go into the accounting folder and you should be able to.
+
+<p>
+<img src="https://i.imgur.com/nlEPa0z.png" height="80%" width="80%" alt="21."/>
+</p>
+
+<p>
+<img src="https://i.imgur.com/kal6vzc.png" height="80%" width="80%" alt="22."/>
+</p>
+
+After doing this exercise, you should have some intuition on how to create network files and set the permissions. Thank you checking out my tutorial! 
+
+
+**REMEMBER TO DELETE YOUR RESOURCES ONCE YOU ARE DONE WITH THE LAB!**
