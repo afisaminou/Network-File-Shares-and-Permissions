@@ -3,7 +3,7 @@
 </p>
 
 <h1>Network File Permissions/Shares --> Coming Soon </h1> 
-In this tutorial, I will be showing how to set network file permissions and sharing it with other users. This tutorial will give you a feel for how an Information Technology (IT) administrator would grant/deny access to users in regards to certain network files and folders. 
+In this tutorial, I will be showing how to set network file permissions and sharing it with other users. This tutorial will give you a feel for how an Information Technology (IT) Administrator would grant/deny access to users in regards to certain network files and folders. 
 
 <h2>Environments and Technologies Used</h2>
 
